@@ -1,0 +1,6 @@
+.navbar {
+    border-bottom: lightgrey 1px solid;
+}
+.navbar-nav {
+    flex-direction: row;
+}
