@@ -35,8 +35,8 @@ function ListResult() {
 
         getMeals.then(response => {
             dispatch({ type: 'CHANGE_SPINNER', value: false })
-            if (response == null) return <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1>;
-            return setmeal(response);
+            if (response) setmeal(response);
+            else setmeal(null);
         })
 
     }
@@ -53,7 +53,7 @@ function ListResult() {
     }
 
     const listData = meal == null ?
-        <h1 style={{ margin: '70px', color: 'GrayText' }}>404 Not Found</h1> :
+        <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1> :
         meal.map(data => {
             return (
                 <div className="card" style={{ width: '90%', maxWidth: '600px', margin: '70px auto' }}>

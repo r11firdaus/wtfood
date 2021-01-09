@@ -15,9 +15,9 @@ export default function FoodList() {
     const getAPI = huruf => {
         dispatch({ type: 'CHANGE_SPINNER', value: true })
         getData('search', 'f', huruf).then(response => {
-            console.log(response)
             dispatch({ type: 'CHANGE_SPINNER', value: false })
             if (response) setmeal(response);
+            else setmeal(null)
         })
 
     }
@@ -40,9 +40,9 @@ export default function FoodList() {
         } else if (meal == null) return <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1>
     }
 
-    useEffect(() => {
-        showList()
-    }, [])
+    // useEffect(() => {
+    //     showList()
+    // }, [])
 
     return (
         <div>
