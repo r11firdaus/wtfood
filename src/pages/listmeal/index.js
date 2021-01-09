@@ -35,7 +35,6 @@ function ListResult() {
 
         getMeals.then(response => {
             dispatch({ type: 'CHANGE_SPINNER', value: false })
-            console.log(response)
             if (response == null) return <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1>;
             return setmeal(response);
         })
