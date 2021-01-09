@@ -16,14 +16,12 @@ function ListResult() {
 
     const showElement = () => {
         if (spinner) return Spinner();
-        else {
-            return (
-                <div>
-                    <h3 style={{ marginTop: '70px', marginLeft: '40px' }}>Result for "{title}"</h3>
-                    {listData}
-                </div>
-            )
-        }
+        return (
+            <div className="wadah">
+                <h3 style={{ marginTop: '70px', marginLeft: '40px' }}>Result for "{title}"</h3>
+                {listData}
+            </div>
+        )
     }
 
     const getAPI = keyword => {

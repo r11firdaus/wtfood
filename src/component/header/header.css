@@ -4,3 +4,39 @@
 .navbar-nav {
     flex-direction: row;
 }
+
+@media screen and (max-width: 839px) {
+    .navigasi {
+      bottom: 0;
+      justify-content: space-between;
+    }
+  }
+@media screen and (max-width: 804px) {
+    .navigasi {
+      width: 60%;
+    }
+  }
+@media screen and (max-width: 598px) {
+    .navigasi {
+      width: 100%;
+      justify-content: space-around;
+    }
+  }
+@media screen and (max-width: 308px) {
+    .navbar-brand {
+        font-size: 13px;
+    }
+    .navigasi {
+      width: 100%;
+      justify-content: space-between;
+      font-size: 12px;
+      margin: -5px;
+    }
+    .pencarian {
+        visibility: hidden;
+    }
+    .searchbox {
+        font-size: 10px;
+        height: 8px;
+    }
+  }

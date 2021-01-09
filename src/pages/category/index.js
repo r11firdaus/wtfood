@@ -44,8 +44,8 @@ const Category = () => {
     return (
         <div>
             <Header />
-            <div style={{ marginTop: '70px' }}>
-                <h1 className="mx-5">Category</h1>
+            <div className="wadah" style={{ marginTop: '100px' }}>
+                {/* <h1 className="mx-5">Category</h1> */}
                 {showElement()}
             </div>
         </div>

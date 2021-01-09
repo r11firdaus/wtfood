@@ -13,12 +13,10 @@ const DetailMeal = () => {
     const history = useHistory()
     document.title = meal.strMeal ? meal.strMeal : 'What The Food';
 
-
     const showElement = () => {
         if (spinner) return Spinner();
-        else {
             return (
-                <div>
+                <div className="wadah">
                     <h2 className="card-title" style={{ alignSelf: 'center', marginTop: '70px', marginLeft: '30px' }}>{meal.strMeal}</h2>
                     <div className="card" style={{ width: '90%', maxWidth: '800px', margin: '70px auto' }}>
                         <img src={meal.strMealThumb} height='400' width='400' className="card-img-top" alt={meal.strMeal + '.jpg'} />
@@ -36,8 +34,8 @@ const DetailMeal = () => {
                     </div>
                 </div>
             )
-        }
     }
+
     useEffect(() => {
         dispatch({ type: 'CHANGE_SPINNER', value: true })
         getData('lookup', 'i', id).then(response => {
@@ -46,7 +44,7 @@ const DetailMeal = () => {
                 setmeal(response[0])
                 let seoMeal = []
                 seoMeal = response[0].strMeal.split(' ')
-                history.push(`/detail/${response[0].idMeal}/${seoMeal.join('-')}`)
+                history.replace(`/detail/${response[0].idMeal}/${seoMeal.join('-')}`)
             } else {
                 return <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1>
             }
@@ -55,14 +53,12 @@ const DetailMeal = () => {
     const ingredient = () => {
         let arr = []
         for (let i = 1; i <= 20; i++) {
-            let strIng = `meal.strIngredient${i}`;
-            let listIng = eval(strIng);
-            let strIngb = `meal.strMeasure${i}`;
-            let listIngb = eval(strIngb);
-            if (listIng == '' && listIngb == '') {
+            let strIng = eval(`meal.strIngredient${i}`);
+            let strIngb = eval(`meal.strMeasure${i}`);
+            if (strIng == '' || strIngb == '' || strIng == null || strIngb == null) {
                 break;
             } else {
-                arr.push(`${listIng} ${listIngb}`);
+                arr.push(`${strIng} ${strIngb}`);
             }
         }
         return arr.join(', ')

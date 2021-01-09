@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Header from '../../component/header';
@@ -40,15 +40,11 @@ export default function FoodList() {
         } else if (meal == null) return <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1>
     }
 
-    // useEffect(() => {
-    //     showList()
-    // }, [])
-
     return (
         <div>
             <Header />
-            <div style={{ marginTop: '70px', marginLeft: '30px', marginRight: '30px' }}>
-                <h1>Food List Data</h1>
+            <div style={{ marginTop: '100px', marginLeft: '30px', marginRight: '30px' }}>
+                {/* <h1>Food List Data</h1> */}
                 <div className='container'>
                     <ul className="list-group list-group-horizontal row">
                         {

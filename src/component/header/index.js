@@ -4,6 +4,7 @@ import { actionChangeLoading } from '../../config/redux/action';
 import Button from '../button';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import './header.css'
 
 const Header = () => {
     const loading = useSelector(state => state.loading)
@@ -36,16 +37,15 @@ const Header = () => {
     }, [])
 
     return (
-        <div>
             <header>
                 <nav className="navbar navbar-expand-md navbar-light fixed-top bg-white">
                     <div className="container-fluid">
                         <Link className="navbar-brand" to="/">What The Food</Link>
                         <form className="d-flex">
-                            <input className="form-control mr-2" value={data} onChange={onChangeData} id='type-name' type="search" placeholder="Search" aria-label="Search" />
-                            <Button className="btn btn-primary" onClick={changeUser} type="submit" name="Submit" loading={loading} />
+                            <input className="form-control mr-2 searchbox" value={data} onChange={onChangeData} id='type-name' type="search" placeholder="Search" aria-label="Search" />
+                            <Button className="btn btn-primary pencarian" onClick={changeUser} type="submit" name="Submit" loading={loading} />
                         </form>
-                        <ul className="navbar-nav ml-auto mx-auto">
+                        <ul className="navbar-nav ml-auto mx-auto navigasi">
                             <li className="nav-item active">
                                 <Link className="nav-link" to="/" aria-current="page">Home</Link>
                             </li>
@@ -67,7 +67,6 @@ const Header = () => {
                     </div>
                 </nav>
             </header>
-        </div>
     )
 }
 
