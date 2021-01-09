@@ -61,7 +61,7 @@ const Header = () => {
                         </ul>
                         <ul className="navbar-nav" style={{right: '0'}}>
                             <li className="nav-item">
-                                {showLoginBtn()}
+                                {/* {showLoginBtn()} */}
                             </li>
                         </ul>
                     </div>
