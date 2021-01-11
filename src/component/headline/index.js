@@ -9,6 +9,7 @@ const Headline = props => {
         
         return (
             <HeadlineItems
+                type={`${strTitle}`}
                 title={eval(headlineTitle)}
                 pos={meal == props.data[0] ? "carousel-item active" : "carousel-item"}
                 txtalign='carousel-caption text-left'

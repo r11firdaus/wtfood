@@ -4,7 +4,9 @@ import { useHistory } from "react-router-dom";
 const HeadlineItems = props => {
     const history = useHistory();
     const dataClilked = title => {
-        history.push(`/result/category/${title}`)
+        const typePath = props.type.split('str');
+        let urlPath = typePath[1].toLowerCase()
+        history.push(`/result/${urlPath}/${title}`)
     }
     return (
         <div className={props.pos ? props.pos:"carousel-item"}>

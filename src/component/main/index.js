@@ -4,19 +4,19 @@ import Highlight from "../highlight";
 
 const Main = () => {
     return (
-        <div class="container marketing">
-            <hr class="featurette-divider" />
+        <div className="container marketing">
+            <hr className="featurette-divider" />
             <Feature />
 
-            <hr class="featurette-divider" />
+            <hr className="featurette-divider" />
             <Feature order="col-md-7 order-md-2" />
 
-            <hr class="featurette-divider" />
+            <hr className="featurette-divider" />
             <Feature />
 
-            <hr class="featurette-divider" />
+            <hr className="featurette-divider" />
 
-            <div class="row">
+            <div className="row">
                 <Highlight />
                 <Highlight />
                 <Highlight />

@@ -28,7 +28,7 @@ const Header = () => {
         history.push('/login')
     }
     const showLoginBtn = () => {
-        if (isLogin) return <a class="btn btn-sm btn-light" onClick={handleLogout}>Logout</a>;
+        if (isLogin) return <a className="btn btn-sm btn-light" onClick={handleLogout}>Logout</a>;
            return <Link className="btn btn-sm btn-outline-primary" to="/login" tabIndex="-1">Login</Link>;
     }
 
