@@ -39,10 +39,12 @@ const Header = () => {
     return (
             <header>
                 <nav className="navbar navbar-expand-md navbar-light fixed-top bg-white">
-                    <div className="container-fluid">
-                        <Link className="navbar-brand" to="/">What The Food</Link>
-                        <form className="d-flex">
-                            <input className="form-control mr-2 searchbox" value={data} onChange={onChangeData} id='type-name' type="search" placeholder="Search" aria-label="Search" />
+                    <div className="container-fluid" style={{display: 'flex'}}>
+                        <div style={{flex: '1'}}>
+                            <Link className="navbar-brand" to="/">What The Food</Link>
+                        </div>
+                        <form className="d-flex mr-auto" style={{flex: '2'}}>
+                            <input className="form-control mr-2 searchbox" value={data} onChange={onChangeData} id='type-name' type="search" placeholder="Search" aria-label="Search" style={{maxWidth: '400px'}} />
                             <Button className="btn btn-primary pencarian" onClick={changeUser} type="submit" name="Submit" loading={loading} />
                         </form>
                         <ul className="navbar-nav ml-auto mx-auto navigasi">

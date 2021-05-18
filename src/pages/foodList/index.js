@@ -24,20 +24,19 @@ export default function FoodList() {
 
     const showList = () => {
         if (spinner) return Spinner();
-        else if (meal) {
+        if (meal === null || meal === undefined) return <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1>
+        else {
             return (
                 <ul className="list-group mx-5" style={{ marginTop: '30px' }} >
                     {
-                        meal.map(meals => {
-                            return (
-                                <Link className="list-group-item" key={meals.idMeal} to={`/detail/${meals.idMeal}`}>{meals.strMeal}</Link>
+                        meal.map((meals, index) => (
+                                <Link className="list-group-item" key={meals.idMeal} to={`/detail/${meals.idMeal}`} key={index}>{meals.strMeal}</Link>
                             )
-                        })
+                        )
                     }
                 </ul>
             )
-
-        } else if (meal == null) return <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1>
+        }
     }
 
     return (
@@ -48,9 +47,9 @@ export default function FoodList() {
                 <div className='container'>
                     <ul className="list-group list-group-horizontal row">
                         {
-                            alphabet.map(huruf => {
+                            alphabet.map((huruf, index) => {
                                 return (
-                                    <button onClick={() => getAPI(huruf)} className="list-group-item col" style={{ textAlign: 'center' }}>{huruf.toUpperCase()}</button>
+                                    <button onClick={() => getAPI(huruf)} className="list-group-item col" style={{ textAlign: 'center' }} key={index}>{huruf.toUpperCase()}</button>
                                 )
                             })
                         }
