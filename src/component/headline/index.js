@@ -3,16 +3,17 @@ import './headline.css'
 import HeadlineItems from './headlineItems'
 
 const Headline = props => {
-    const headlineData = props.data.map(meal => {
+    const headlineData = props.data.map((meal, index) => {
         const strTitle = Object.keys(meal);
-        let headlineTitle = `meal.${strTitle}`;
+        const headlineTitle = `meal.${strTitle}`;
         
         return (
             <HeadlineItems
+                key={index}
                 type={`${strTitle}`}
                 title={eval(headlineTitle)}
                 pos={meal == props.data[0] ? "carousel-item active" : "carousel-item"}
-                txtalign='carousel-caption text-left'
+                txtalign='carousel-caption texst-left'
             />
         )
     })

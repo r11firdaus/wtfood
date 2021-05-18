@@ -13,9 +13,7 @@ const Country = () => {
 
     const getAPI = () => {
         getData('list', 'a', 'list').then(response => {
-            if (response) {
-                dispatch({ type: 'LOAD_API', value: response })
-            }
+            if (response) dispatch({ type: 'LOAD_API', value: response })
             dispatch({ type: 'CHANGE_SPINNER', value: false })
         })
             .catch(err => console.error('Error:', err));
@@ -25,13 +23,12 @@ const Country = () => {
         if (spinner) return Spinner();
         else {
             return (
-                <ul class="list-group mx-5" style={{ marginTop: '30px' }}>
+                <ul className="list-group mx-5" style={{ marginTop: '30px' }}>
                     {
-                        meal.map(meals => {
-                            return (
-                                <Link class="list-group-item" to={`/result/country/${meals.strArea}`}>{meals.strArea}</Link>
+                        meal.map((meals, index) => (
+                                <Link className="list-group-item" to={`/result/country/${meals.strArea}`} key={index}>{meals.strArea}</Link>
                             )
-                        })
+                        )
                     }
                 </ul>
             )

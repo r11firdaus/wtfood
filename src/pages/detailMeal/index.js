@@ -45,9 +45,7 @@ const DetailMeal = () => {
                 let seoMeal = []
                 seoMeal = response[0].strMeal.split(' ')
                 history.replace(`/detail/${response[0].idMeal}/${seoMeal.join('-')}`)
-            } else {
-                return <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1>
-            }
+            } else return <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1>
         })
     }, [])
     const ingredient = () => {
@@ -57,9 +55,7 @@ const DetailMeal = () => {
             let strIngb = eval(`meal.strMeasure${i}`);
             if (strIng == '' || strIngb == '' || strIng == null || strIngb == null) {
                 break;
-            } else {
-                arr.push(`${strIng} ${strIngb}`);
-            }
+            } else arr.push(`${strIng} ${strIngb}`);
         }
         return arr.join(', ')
     }

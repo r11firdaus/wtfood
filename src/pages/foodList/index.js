@@ -26,11 +26,11 @@ export default function FoodList() {
         if (spinner) return Spinner();
         else if (meal) {
             return (
-                <ul class="list-group mx-5" style={{ marginTop: '30px' }} >
+                <ul className="list-group mx-5" style={{ marginTop: '30px' }} >
                     {
                         meal.map(meals => {
                             return (
-                                <Link class="list-group-item" key={meals.idMeal} to={`/detail/${meals.idMeal}`}>{meals.strMeal}</Link>
+                                <Link className="list-group-item" key={meals.idMeal} to={`/detail/${meals.idMeal}`}>{meals.strMeal}</Link>
                             )
                         })
                     }

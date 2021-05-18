@@ -52,9 +52,8 @@ function ListResult() {
 
     const listData = meal == null ?
         <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1> :
-        meal.map(data => {
-            return (
-                <div className="card" style={{ width: '90%', maxWidth: '600px', margin: '70px auto' }}>
+        meal.map((data, index) => (
+                <div className="card" style={{ width: '90%', maxWidth: '600px', margin: '70px auto' }} key={index}>
                     <img src={data.strMealThumb} height='400' width='400' className="card-img-top" alt={data.strMeal + '.jpg'} />
                     <div className="card-body">
                         <h5 className="card-title">{data.strMeal}</h5>
@@ -62,7 +61,7 @@ function ListResult() {
                     </div>
                 </div>
             )
-        })
+        )
 
     return (
         <div>

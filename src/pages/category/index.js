@@ -23,13 +23,12 @@ const Category = () => {
         if (spinner) return Spinner();
         else {
             return (
-                <ul class="list-group mx-5" style={{ marginTop: '30px' }}>
+                <ul className="list-group mx-5" style={{ marginTop: '30px' }}>
                     {
-                        meal.map(meals => {
-                            return (
-                                <Link class="list-group-item" to={`/result/category/${meals.strCategory}`}>{meals.strCategory}</Link>
+                        meal.map((meals, index) => (
+                                <Link className="list-group-item" to={`/result/category/${meals.strCategory}`} key={index}>{meals.strCategory}</Link>
                             )
-                        })
+                        )
                     }
                 </ul>
             )

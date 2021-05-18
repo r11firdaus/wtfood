@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './header.css';
 import { actionChangeLoading } from '../../config/redux/action';
 import Button from '../button';
 import { Link, useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './header.css'
 
 const Header = () => {
     const loading = useSelector(state => state.loading)
     const history = useHistory()
     const [data, setdata] = useState('')
-    const useremail = localStorage.getItem('useremail')
-    const isLogin = useSelector(state => state.isLogin)
-    const dispatch = useDispatch()
+    // const useremail = localStorage.getItem('useremail')
+    // const isLogin = useSelector(state => state.isLogin)
+    // const dispatch = useDispatch()
     const changeUser = e => {
         // e.preventDefault()
         actionChangeLoading();
@@ -23,18 +23,18 @@ const Header = () => {
         const typedata = e.target.value;
         setdata(typedata)
     }
-    const handleLogout = () => {
-        localStorage.removeItem('useremail')
-        history.push('/login')
-    }
-    const showLoginBtn = () => {
-        if (isLogin) return <a className="btn btn-sm btn-light" onClick={handleLogout}>Logout</a>;
-           return <Link className="btn btn-sm btn-outline-primary" to="/login" tabIndex="-1">Login</Link>;
-    }
+    // const handleLogout = () => {
+    //     localStorage.removeItem('useremail')
+    //     history.push('/login')
+    // }
+    // const showLoginBtn = () => {
+    //     if (isLogin) return <a className="btn btn-sm btn-light" onClick={handleLogout}>Logout</a>;
+    //        return <Link className="btn btn-sm btn-outline-primary" to="/login" tabIndex="-1">Login</Link>;
+    // }
 
-    useEffect(() => {
-        useremail ? dispatch({type: 'CHANGE_ISLOGIN', value: true}) : dispatch({type: 'CHANGE_ISLOGIN', value: false})
-    }, [])
+    // useEffect(() => {
+        // useremail ? dispatch({type: 'CHANGE_ISLOGIN', value: true}) : dispatch({type: 'CHANGE_ISLOGIN', value: false})
+    // }, [])
 
     return (
             <header>
@@ -60,9 +60,9 @@ const Header = () => {
                             </li>
                         </ul>
                         <ul className="navbar-nav" style={{right: '0'}}>
-                            <li className="nav-item">
-                                {/* {showLoginBtn()} */}
-                            </li>
+                            {/* <li className="nav-item">
+                                {showLoginBtn()}
+                            </li> */}
                         </ul>
                     </div>
                 </nav>
