@@ -1,7 +1,6 @@
 import React, { memo, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom'
-import Header from '../../component/header';
 import Spinner from '../../component/spinner';
 import getData from '../../config/api';
 
@@ -65,7 +64,6 @@ function ListResult() {
 
     return (
         <div>
-            <Header />
             {showElement()}
         </div>
     )
