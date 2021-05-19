@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Header from '../../component/header'
 import Spinner from '../../component/spinner';
 import getData from '../../config/api';
 
@@ -42,9 +41,8 @@ const Country = () => {
 
     return (
         <div>
-            <Header />
-            <div style={{ marginTop: '100px' }}>
-                {/* <h1 className="mx-5">Country</h1> */}
+            <div style={{ marginTop: '70px' }}>
+                <h4 className="mx-5">Country</h4>
                 {showElement()}
             </div>
         </div>

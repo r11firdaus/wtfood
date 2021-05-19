@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom'
-import Header from '../../component/header';
 import Spinner from '../../component/spinner';
 import getData from '../../config/api';
 
@@ -53,17 +52,13 @@ const DetailMeal = () => {
         for (let i = 1; i <= 20; i++) {
             let strIng = eval(`meal.strIngredient${i}`);
             let strIngb = eval(`meal.strMeasure${i}`);
-            if (strIng == '' || strIngb == '' || strIng == null || strIngb == null) {
-                break;
-            } else arr.push(`${strIng} ${strIngb}`);
+            if (strIng == '' || strIngb == '' || strIng == null || strIngb == null) break;
+            else arr.push(`${strIng} ${strIngb}`);
         }
         return arr.join(', ')
     }
     return (
-        <div>
-            <Header />
-            {showElement()}
-        </div>
+        <div>{showElement()}</div>
     )
 }
 

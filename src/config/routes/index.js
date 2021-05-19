@@ -4,11 +4,13 @@ import {
     Switch,
     Route,
   } from "react-router-dom";
+import Header from '../../component/header';
 import { Home, Login, Register,ListResult, DetailMeal, Category, Country, FoodList } from '../../pages';
 
 const Routes = () => {
     return (
         <Router>
+            <Header />
             <Switch>
                 <Route path="/login">
                     <Login />

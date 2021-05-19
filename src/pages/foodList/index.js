@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Header from '../../component/header';
 import Spinner from '../../component/spinner';
 import getData from '../../config/api';
 
@@ -24,7 +23,7 @@ export default function FoodList() {
 
     const showList = () => {
         if (spinner) return Spinner();
-        if (meal === null || meal === undefined) return <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1>
+        if (meal === null || meal === undefined) return <h4 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h4>
         else {
             return (
                 <ul className="list-group mx-5" style={{ marginTop: '30px' }} >
@@ -41,9 +40,8 @@ export default function FoodList() {
 
     return (
         <div>
-            <Header />
-            <div style={{ marginTop: '100px', marginLeft: '30px', marginRight: '30px' }}>
-                {/* <h1>Food List Data</h1> */}
+            <div style={{ marginTop: '70px', marginLeft: '30px', marginRight: '30px' }}>
+                <h4>Food List Data</h4>
                 <div className='container'>
                     <ul className="list-group list-group-horizontal row">
                         {

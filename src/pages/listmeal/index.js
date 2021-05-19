@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom'
 import Header from '../../component/header';
@@ -50,11 +50,11 @@ function ListResult() {
         history.push(`/detail/${id}`)
     }
 
-    const listData = meal == null ?
+    const listData = meal === null ?
         <h1 style={{ margin: '70px', color: 'GrayText' }}>Not Found</h1> :
         meal.map((data, index) => (
                 <div className="card" style={{ width: '90%', maxWidth: '600px', margin: '70px auto' }} key={index}>
-                    <img src={data.strMealThumb} height='400' width='400' className="card-img-top" alt={data.strMeal + '.jpg'} />
+                    <img src={data.strMealThumb} height='400' width='400' className="card-img-top" alt={data.strMeal + '.jpg'} loading="lazy" />
                     <div className="card-body">
                         <h5 className="card-title">{data.strMeal}</h5>
                         <button onClick={() => viewDetail(data.idMeal)} className="btn btn-primary">Detail</button>
@@ -71,4 +71,4 @@ function ListResult() {
     )
 }
 
-export default ListResult
+export default memo(ListResult)

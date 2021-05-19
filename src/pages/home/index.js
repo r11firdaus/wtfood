@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React, { lazy, memo, Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../component/header";
 import Headline from '../../component/headline';
-import Main from '../../component/main';
 import Spinner from "../../component/spinner";
 import getData from "../../config/api";
-import getCategory from "../../config/api";
+const Main = lazy(() => import('../../component/main'));
 
 const Home = () => {
     const state = useSelector(state => state.meal)
@@ -19,7 +18,9 @@ const Home = () => {
             return (
                 <div>
                     <Headline data={state} />
-                    <Main />
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Main />
+                    </Suspense>
                 </div>
             )
         }
@@ -49,4 +50,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default memo(Home);
